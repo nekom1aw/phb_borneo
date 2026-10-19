@@ -1,0 +1,25 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "tinymce": "node -e \"const fs=require('fs');fs.rmSync('public/tinymce',{recursive:true,force:true});fs.cpSync('node_modules/tinymce','public/tinymce',{recursive:true});fs.mkdirSync('public/tinymce/langs',{recursive:true});fs.copyFileSync('node_modules/tinymce-i18n/langs8/id.js','public/tinymce/langs/id.js')\"",
+        "postinstall": "npm run tinymce"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.0.0",
+        "concurrently": "^10.0.3",
+        "laravel-vite-plugin": "^3.1",
+        "tailwindcss": "^4.0.0",
+        "vite": "^8.0.0"
+    },
+    "optionalDependencies": {
+        "@laravel/multiplex": "^0.4.1"
+    },
+    "dependencies": {
+        "tinymce": "^8.10.0",
+        "tinymce-i18n": "^26.9.28"
+    }
+}
